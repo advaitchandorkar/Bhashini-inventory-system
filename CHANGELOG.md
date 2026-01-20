@@ -1,0 +1,44 @@
+# Changelog
+
+## 2026-01-19
+
+- `.gitignore`: Added env/db/venv/cache/build ignores to keep local artifacts out of version control.
+- `.env.example`: Added placeholders for backend, AI, and frontend configuration.
+- `README.md`: Added setup instructions, architecture diagram, endpoints, and verification checklist.
+- `flask-app/requirements.txt`: Added backend dependencies for auth, AI, OCR, and MongoDB.
+- `flask-app/app.py`: Rebuilt Flask app to use blueprints, CORS, and a health check.
+- `flask-app/config.py`: Centralized environment loading via python-dotenv.
+- `flask-app/db.py`: Added Mongo client helper and inventory indexes.
+- `flask-app/auth.py`: Added bcrypt hashing, JWT utilities, and rate limiting.
+- `flask-app/routes/auth_routes.py`: New signup/login/me routes with JWT responses.
+- `flask-app/routes/inventory_routes.py`: Unified inventory CRUD and bulk upsert with validation.
+- `flask-app/routes/voice_routes.py`: Added ASR transcription and Gemini parsing endpoints.
+- `flask-app/routes/image_routes.py`: Added OCR + Gemini parsing with Roboflow fallback.
+- `flask-app/routes/barcode_routes.py`: Added barcode lookup endpoint.
+- `flask-app/data/barcodes.json`: Added starter barcode lookup data.
+- `flask-app/services/bhashini_asr.py`: Extracted ASR integration.
+- `flask-app/services/gemini_parse.py`: Extracted Gemini parsing with JSON validation.
+- `flask-app/services/normalize.py`: Added item normalization and validation helpers.
+- `flask-app/services/ocr.py`: Added OCR wrapper using Tesseract.
+- `flask-app/Image.py`: Moved Roboflow API key/model to env.
+- `flask-app/delete.py`: Removed hardcoded secrets and aligned schema (legacy script).
+- `flask-app/test.py`: Removed hardcoded secrets and aligned schema (legacy script).
+- `flask-app/notification.py`: Removed hardcoded secrets and aligned schema (legacy script).
+- `flask-app/barcode.py`: Fixed `__init__` and `__name__` typos.
+- `lib/api.js`: Added centralized API client with JWT header injection.
+- `lib/actions/user.actions.js`: Updated to use API client and `/api/auth/me`.
+- `components/AddItemsPanel.js`: New guided manual/voice/image/barcode intake UI.
+- `components/AllData.js`: Updated inventory fetch to new API.
+- `components/Columns.js`: Updated schema columns and added edit/delete actions.
+- `components/DataTable.js`: Updated filter field and removed localStorage side effects.
+- `components/RightSidebar.js`: Updated restock polling and removed legacy record buttons.
+- `components/ReStock.js`: Updated restock data fetch to new API.
+- `components/SignInComponent.js`: Updated login endpoint to new auth API.
+- `components/AuthForm.js`: Updated signup/login to new auth API and token handling.
+- `components/FixedButton.js`: Removed legacy server-side recording UI.
+- `app/(root)/page.js`: Added Add Items panel and refresh behavior.
+- `app/(root)/add_product/page.js`: Simplified to reuse Add Items panel.
+- `app/(root)/orders/page.js`: Marked as “Coming soon”.
+- `app/(root)/re_stock/page.js`: Marked as “Coming soon”.
+- `app/(root)/transaction-history/page.js`: Marked as “Coming soon”.
+- `scripts/sanity_check.sh`: Added simple API health sanity script.

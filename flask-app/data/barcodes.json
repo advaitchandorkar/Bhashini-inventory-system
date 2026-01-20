@@ -1,0 +1,10 @@
+{
+  "8901030896281": {
+    "name": "Maggi Noodles",
+    "quantity": 1,
+    "unit": "pack",
+    "price_per_unit": 14,
+    "currency": "INR",
+    "source": "barcode"
+  }
+}
